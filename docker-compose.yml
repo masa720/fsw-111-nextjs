@@ -15,17 +15,14 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
-    profiles: ["dev"]
 
   web:
     container_name: fsw-111-nextjs
     build:
       context: .
-      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
     restart: unless-stopped
-    profiles: ["prod"]
