@@ -12,8 +12,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+    permissions: { contents: read }
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,5 +37,5 @@ jobs:
           script: |
             set -euo pipefail
             cd "${{ secrets.EC2_PATH }}"
-            docker compose --profile prod up -d --build
+            docker compose up -d --build web
             docker image prune -f
