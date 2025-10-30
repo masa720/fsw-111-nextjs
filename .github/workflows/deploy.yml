@@ -37,5 +37,5 @@ jobs:
           script: |
             set -euo pipefail
             cd "${{ secrets.EC2_PATH }}"
-            docker compose up -d --build web
+            docker-compose up -d --build web
             docker image prune -f
