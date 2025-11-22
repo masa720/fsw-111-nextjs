@@ -84,6 +84,5 @@ jobs:
           curl -sS -X POST "$LAMBDA_URL" \
             -H "Content-Type: application/json" \
             -d "$PAYLOAD"
-
         env:
           LAMBDA_URL: ${{ secrets.LAMBDA_URL }}
